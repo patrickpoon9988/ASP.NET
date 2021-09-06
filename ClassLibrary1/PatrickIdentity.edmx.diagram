@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9ac64335d97b4fb890d0492ca416b089" Name="Diagram1">
+        <EntityTypeShape EntityType="Patrick_Identity_TryModel.tblAspNetUserClaim" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Patrick_Identity_TryModel.tblAspNetUserLogin" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Patrick_Identity_TryModel.tblAspNetUser" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="Patrick_Identity_TryModel.FK__tblAspNet__UserI__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="Patrick_Identity_TryModel.FK__tblAspNet__UserI__2D27B809" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Patrick_Identity_TryModel.tblAspNetUserRole" Width="1.5" PointX="6" PointY="4.25" />
+        <AssociationConnector Association="Patrick_Identity_TryModel.FK__tblAspNet__UserI__33D4B598" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

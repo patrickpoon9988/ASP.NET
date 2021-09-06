@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Patrick_Identity_TryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblAspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblAspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleID" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblAspNetUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__tblAspNet__UserI__2B3F6F97">
+          <End Role="tblAspNetUsers" Type="Self.tblAspNetUsers" Multiplicity="1" />
+          <End Role="tblAspNetUserClaims" Type="Self.tblAspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserClaims">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAspNet__UserI__2D27B809">
+          <End Role="tblAspNetUsers" Type="Self.tblAspNetUsers" Multiplicity="1" />
+          <End Role="tblAspNetUserLogins" Type="Self.tblAspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserLogins">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAspNet__UserI__300424B4">
+          <End Role="tblAspNetUsers" Type="Self.tblAspNetUsers" Multiplicity="1" />
+          <End Role="tblAspNetUserRoles" Type="Self.tblAspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserRoles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAspNet__UserI__30F848ED">
+          <End Role="tblAspNetUsers" Type="Self.tblAspNetUsers" Multiplicity="1" />
+          <End Role="tblAspNetUserRoles" Type="Self.tblAspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserRoles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAspNet__UserI__32E0915F">
+          <End Role="tblAspNetUsers" Type="Self.tblAspNetUsers" Multiplicity="1" />
+          <End Role="tblAspNetUserRoles" Type="Self.tblAspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserRoles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAspNet__UserI__33D4B598">
+          <End Role="tblAspNetUsers" Type="Self.tblAspNetUsers" Multiplicity="1" />
+          <End Role="tblAspNetUserRoles" Type="Self.tblAspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserRoles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblAspNetUserLogins_dbo_tblAspNetUsers_UserId">
+          <End Role="tblAspNetUsers" Type="Self.tblAspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblAspNetUserLogins" Type="Self.tblAspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserLogins">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Patrick_Identity_TryModelStoreContainer">
+          <EntitySet Name="tblAspNetUserClaims" EntityType="Self.tblAspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAspNetUserLogins" EntityType="Self.tblAspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAspNetUserRoles" EntityType="Self.tblAspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAspNetUsers" EntityType="Self.tblAspNetUsers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblAspNet__UserI__2B3F6F97" Association="Self.FK__tblAspNet__UserI__2B3F6F97">
+            <End Role="tblAspNetUsers" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserClaims" EntitySet="tblAspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAspNet__UserI__2D27B809" Association="Self.FK__tblAspNet__UserI__2D27B809">
+            <End Role="tblAspNetUsers" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserLogins" EntitySet="tblAspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAspNet__UserI__300424B4" Association="Self.FK__tblAspNet__UserI__300424B4">
+            <End Role="tblAspNetUsers" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserRoles" EntitySet="tblAspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAspNet__UserI__30F848ED" Association="Self.FK__tblAspNet__UserI__30F848ED">
+            <End Role="tblAspNetUsers" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserRoles" EntitySet="tblAspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAspNet__UserI__32E0915F" Association="Self.FK__tblAspNet__UserI__32E0915F">
+            <End Role="tblAspNetUsers" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserRoles" EntitySet="tblAspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAspNet__UserI__33D4B598" Association="Self.FK__tblAspNet__UserI__33D4B598">
+            <End Role="tblAspNetUsers" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserRoles" EntitySet="tblAspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblAspNetUserLogins_dbo_tblAspNetUsers_UserId" Association="Self.FK_dbo_tblAspNetUserLogins_dbo_tblAspNetUsers_UserId">
+            <End Role="tblAspNetUsers" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserLogins" EntitySet="tblAspNetUserLogins" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Patrick_Identity_TryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblAspNetUser" Relationship="Self.FK__tblAspNet__UserI__2B3F6F97" FromRole="tblAspNetUserClaims" ToRole="tblAspNetUsers" />
+        </EntityType>
+        <EntityType Name="tblAspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblAspNetUser" Relationship="Self.FK__tblAspNet__UserI__2D27B809" FromRole="tblAspNetUserLogins" ToRole="tblAspNetUsers" />
+        </EntityType>
+        <EntityType Name="tblAspNetUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblAspNetUserClaims" Relationship="Self.FK__tblAspNet__UserI__2B3F6F97" FromRole="tblAspNetUsers" ToRole="tblAspNetUserClaims" />
+          <NavigationProperty Name="tblAspNetUserLogins" Relationship="Self.FK__tblAspNet__UserI__2D27B809" FromRole="tblAspNetUsers" ToRole="tblAspNetUserLogins" />
+          <NavigationProperty Name="tblAspNetUserRoles3" Relationship="Patrick_Identity_TryModel.FK__tblAspNet__UserI__33D4B598" FromRole="tblAspNetUser" ToRole="tblAspNetUserRole" />
+        </EntityType>
+        <Association Name="FK__tblAspNet__UserI__2B3F6F97">
+          <End Role="tblAspNetUsers" Type="Self.tblAspNetUser" Multiplicity="1" />
+          <End Role="tblAspNetUserClaims" Type="Self.tblAspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserClaims">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAspNet__UserI__2D27B809">
+          <End Role="tblAspNetUsers" Type="Self.tblAspNetUser" Multiplicity="1" />
+          <End Role="tblAspNetUserLogins" Type="Self.tblAspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUsers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserLogins">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Patrick_Identity_TryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAspNetUserClaims" EntityType="Self.tblAspNetUserClaim" />
+          <EntitySet Name="tblAspNetUserLogins" EntityType="Self.tblAspNetUserLogin" />
+          <EntitySet Name="tblAspNetUsers" EntityType="Self.tblAspNetUser" />
+          <AssociationSet Name="FK__tblAspNet__UserI__2B3F6F97" Association="Self.FK__tblAspNet__UserI__2B3F6F97">
+            <End Role="tblAspNetUsers" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserClaims" EntitySet="tblAspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAspNet__UserI__2D27B809" Association="Self.FK__tblAspNet__UserI__2D27B809">
+            <End Role="tblAspNetUsers" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserLogins" EntitySet="tblAspNetUserLogins" />
+          </AssociationSet>
+          <EntitySet Name="tblAspNetUserRoles" EntityType="Patrick_Identity_TryModel.tblAspNetUserRole" />
+          <AssociationSet Name="FK__tblAspNet__UserI__33D4B598" Association="Patrick_Identity_TryModel.FK__tblAspNet__UserI__33D4B598">
+            <End Role="tblAspNetUser" EntitySet="tblAspNetUsers" />
+            <End Role="tblAspNetUserRole" EntitySet="tblAspNetUserRoles" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="tblAspNetUserRole">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RoleID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblAspNetUser3" Relationship="Patrick_Identity_TryModel.FK__tblAspNet__UserI__33D4B598" FromRole="tblAspNetUserRole" ToRole="tblAspNetUser" />
+        </EntityType>
+        <Association Name="FK__tblAspNet__UserI__33D4B598">
+          <End Type="Patrick_Identity_TryModel.tblAspNetUser" Role="tblAspNetUser" Multiplicity="1" />
+          <End Type="Patrick_Identity_TryModel.tblAspNetUserRole" Role="tblAspNetUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAspNetUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblAspNetUserRole">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Patrick_Identity_TryModelStoreContainer" CdmEntityContainer="Patrick_Identity_TryEntities">
+          <EntitySetMapping Name="tblAspNetUserClaims">
+            <EntityTypeMapping TypeName="Patrick_Identity_TryModel.tblAspNetUserClaim">
+              <MappingFragment StoreEntitySet="tblAspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAspNetUserLogins">
+            <EntityTypeMapping TypeName="Patrick_Identity_TryModel.tblAspNetUserLogin">
+              <MappingFragment StoreEntitySet="tblAspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAspNetUsers">
+            <EntityTypeMapping TypeName="Patrick_Identity_TryModel.tblAspNetUser">
+              <MappingFragment StoreEntitySet="tblAspNetUsers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAspNetUserRoles">
+            <EntityTypeMapping TypeName="Patrick_Identity_TryModel.tblAspNetUserRole">
+              <MappingFragment StoreEntitySet="tblAspNetUserRoles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
