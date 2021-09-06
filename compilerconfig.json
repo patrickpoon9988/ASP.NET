@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Content/index.css",
+    "inputFile": "Content/index.scss"
+  },
+  {
+    "outputFile": "Content/TimetableSelect/timetable.css",
+    "inputFile": "Content/TimetableSelect/timetable.scss"
+  }
+]

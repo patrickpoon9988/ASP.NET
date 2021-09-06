@@ -1,0 +1,47 @@
+﻿@{
+    }
+
+@model WebApplication1.Models.LoginModel
+
+<head>
+</head>
+
+<body>
+    <h1>Login test</h1>
+
+    @using (Html.BeginForm("login", "login", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.username)
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.username, new { @class = "form-control" })
+            </div>
+            @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.password)
+            </div>
+            <div class="col-md-3">
+                @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+            </div>
+            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+        </div>
+
+        <br />
+        <div class="text-danger">@ViewBag.error</div>
+
+        <div class="btn">
+            <div>
+                <input type="submit" value="Login" />
+            </div>
+        </div>
+
+    }
+</body>

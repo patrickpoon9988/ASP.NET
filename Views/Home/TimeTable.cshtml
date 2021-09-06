@@ -1,0 +1,129 @@
+﻿@model WebApplication1.Models.PatientInfoModel
+
+@{
+    ViewBag.Title = "TimeTable";
+    var patientInfo = ViewBag.patientInfo;
+    var patientInfoFirst = ViewBag.patientInfoFirst;
+}
+
+@section css{
+
+    <link href="~/Content/Timetable.css" rel="stylesheet" />
+    <link href="~/Content/obvious-buttons.css" rel="stylesheet" />
+    <link href="~/Content/TimetableSelect/timetable.min.css" rel="stylesheet" />
+    }
+
+
+<h2>TimeTable</h2>
+
+@*<input type="hidden" id="url-get-all-patient-info-json" value="@Url.Action(MVC.Home.GetAllPatientsInfoByPatientIDJSON(@Model))" />*@
+
+@if (ViewBag.show == "false")
+{
+    using (Html.BeginForm("timetable", "home", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <h3> Please enter your Patient ID : </h3>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Patient_ID, new { @class = "form-control" })
+        </div>
+        <input type="submit" value="submit" />
+        
+    }
+
+}
+
+else
+{
+    <h2>welcome !</h2>
+    <hr />
+    <div class="row">
+        @foreach (var patient in patientInfo)
+        {
+            <div class="col-md-3">@Html.LabelFor(m => m.Patient_ID): @patient.Patient_ID</div>
+            <div class="col-md-3">@Html.LabelFor(m => m.Name): @patient.Name</div>
+            <div class="col-md-3">@Html.LabelFor(m => m.HKID): @patient.HKID</div>
+            <div class="col-md-3">@Html.LabelFor(m => m.Phone_Number): @patient.Phone_Number</div>
+            <div class="col-md-3">@Html.LabelFor(m => m.Date_of_Birth): @patient.Date_of_Birth</div>
+            <div class="col-md-3">@Html.LabelFor(m => m.Gender): @patient.Gender</div>
+        }
+
+
+        @*this method also works, (first or default call)*@ 
+        @*<h4>@patientInfoFirst.Patient_ID</h4>
+        <h4>@patientInfoFirst.Name</h4>
+        <h4>@patientInfoFirst.HKID</h4>
+        <h4>@patientInfoFirst.Phone_Number</h4>
+        <h4>@patientInfoFirst.Date_of_Birth</h4>
+        <h4>@patientInfoFirst.Gender</h4>*@
+
+
+        @*<div v-for="info in patientInfo">
+            <h4>{{info.Patient_ID}}</h4>
+            <h4>{{info.Name}}</h4>
+            <h4>{{info.HKID}}</h4>
+            <h4>{{info.Phone_Number}}</h4>
+            <h4>{{info.Date_of_Birth}}</h4>
+            <h4>{{info.Gender}}</h4>
+        </div>*@
+
+    </div>
+
+    <br />
+
+    <div class="col-md-7">
+        <div class="alert-danger">Please double-check before you submit it</div>
+    </div>
+
+    <div class="col-md-5">
+        <div>
+            <div class="col-md-4"><button class="btn btn-xlarge">ABC</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">EFG</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">XYZ</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">XYZ</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">XYZ</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">XYZ</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">XYZ</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">XYZ</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">XYZ</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">XYZ</button></div>
+            <div class="col-md-4"><button class="btn btn-xlarge">XYZ</button></div>
+        </div>
+        </div>
+
+
+
+
+
+    @*@section scripts{
+        <script>
+
+            var vueData = {
+                patientInfo: [],
+            };
+
+            var vue = new Vue({
+                el: '#app',
+                data: vueData,
+                methods: {
+                    getPatientsInfoByJson: function () {
+                        return $.ajax({
+                            type: 'post',
+                            url: $("#url-get-all-patient-info-json").val(),
+                            dataType: 'JSON',
+                            success: function (res) {
+                                vueData.patientInfo = res
+                                console.log(vueData.patientInfo)
+                                console.log("get patientinfo")
+                            }
+                        });
+                    }
+                },
+
+                mounted: function () {
+                    this.getPatientsInfoByJson()
+                },
+            })
+
+        </script>
+    }*@
+}

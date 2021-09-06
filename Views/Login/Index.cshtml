@@ -1,0 +1,45 @@
+﻿@model WebApplication1.Models.ASPLoginModel
+
+@{
+    ViewBag.Title = "Login By ASP - Try";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+
+    @using (Html.BeginForm("index", "login", FormMethod.Post, new { @class = "form-horizontal" })) {
+
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <div class="col-md-2 control-label">
+            @Html.LabelFor(m => m.userName)
+        </div>
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2 control-label">
+            @Html.LabelFor(m => m.password)
+        </div>
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2 control-label">
+            @Html.LabelFor(m => m.email)
+        </div>
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-default" type="submit" value="Login">Login</button> 
+    </div>
+        }
+
+
+

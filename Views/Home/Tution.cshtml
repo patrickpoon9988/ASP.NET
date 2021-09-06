@@ -1,0 +1,148 @@
+﻿<head>
+    @*<link href="~/Content/index.scss" type="text/css" rel="stylesheet" />*@
+</head>
+
+<div class="jumbotron">
+    <h1>Welcome</h1>
+</div>
+
+<div class="page-header">
+    <h1>Welcome</h1>
+</div>
+
+<div>
+    <h1>Welcome</h1>
+</div>
+<div class="col-md-3">
+    <div class="input-group">
+        <input id="search" type="text" class="form-control" placeholder="Search..." v-model="filterQuery" />
+        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+    </div>
+    <br />
+</div>
+
+<table class="table" hidden>
+    <thead>
+        <tr>
+            <th v-for="students in tableHeader">{{students}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="students in sortedSearchList">
+            <td>{{students.SID}}</td>
+            <td>{{students.Student_Name}}</td>
+            <td>{{students.Major_Programe}}</td>
+            <td>{{students.Phone_Number}}</td>
+            <td>{{students.Email_Address}}</td>
+            <td>{{students.Home_Address}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li>
+            <a v-on:click="clickPrevious"> Previous </a>
+        </li>
+        <li v-for="pageNumber in pages" v-on:click="page = pageNumber" :class="{active: page == pageNumber}">
+            <a> {{pageNumber}} </a>
+        </li>
+        <li>
+            <a v-on:click="clickNext"> Next </a>
+        </li>
+    </ul>
+</nav>
+
+
+<input type="hidden" id="url-get-all-students-info" value="@Url.Action(MVC.Home.GetAllStudentsInfo())" />
+
+@section scripts{
+
+    <script>
+
+        var vueData = {
+            studentList: [],
+            tableHeader: ['SID', 'Student_Name', 'Major_Programe', 'Phone_Number', 'Email_Address', 'Home_Address'],
+            filterQuery: null,
+            perPage: 6,
+            page: 1,
+            pages: [],
+            paginatedList: [],
+        };
+
+        var vue = new Vue({
+            el: '#app',
+            data: vueData,
+            methods: {
+                //loading student list from database.
+                loadStudentList: function () {
+                    return $.ajax({
+                        type: 'POST',
+                        url: $('#url-get-all-students-info').val(),
+                        dataType: 'JSON',
+                        success: function (res) {
+                            vueData.studentList = res
+                            $('.table').removeAttr('hidden')
+                            console.log('got list and now will call setpages() and paginate()')
+                            vue.setPages()
+                            /*vue.paginate()*/
+                        }
+                    });
+                },
+
+                setPages: function () {
+                    var numberOfPages = Math.ceil(vueData.studentList.length / vueData.perPage);
+                    for (let index = 1; index <= numberOfPages; index++) {
+                        vueData.pages.push(index);
+                    }
+                },
+
+                //paginate: function () {
+                //    let page = vueData.page;
+                //    let perPage = vueData.perPage;
+                //    let from = (page * perPage) - perPage;
+                //    let to = (page * perPage);
+                //    return vueData.paginatedList = vueData.studentList.slice(from, to)
+                //},
+
+                clickPrevious: function () {
+                    if (vueData.page == 1) {
+                        vueData.page = vueData.page
+                    }
+                    else
+                        vueData.page--
+                },
+
+                clickNext: function () {
+                    if (vueData.page == vueData.pages.length) {
+                        vueData.page = vueData.page
+                    }
+                    else
+                        vueData.page++
+                },
+            },
+
+            mounted: function () {
+                this.loadStudentList();
+            },
+
+            computed: {
+                sortedSearchList: function () {
+                    console.log("computed method is calling...")
+                    let page = vueData.page;
+                    let perPage = vueData.perPage;
+                    let from = (page * perPage) - perPage;
+                    let to = (page * perPage);
+                    vueData.paginatedList = vueData.studentList.slice(from, to)
+                    var pageList = vueData.paginatedList
+                    if (vueData.filterQuery) {
+                        return pageList.filter((item) => { return item.SID.toString().includes(this.filterQuery) });
+                    }
+                    else
+                        return pageList
+                },
+            },
+        });
+
+    </script>
+}

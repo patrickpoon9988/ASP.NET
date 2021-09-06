@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Launch demo modal
+</button>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr v-for="students in studentList">
+                        <td>{{students.SID}}</td>
+                        <td>{{students.Student_Name}}</td>
+                        <td>{{students.Major_Programe}}</td>
+                        <td>{{students.Phone_Number}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
+
+<input type="hidden" id="url-get-all-students-info" value="@Url.Action(MVC.Home.GetAllStudentsInfo())" />
+
+@section scripts{
+    <script>
+
+        var vueData = {
+            courseCategory: [{
+                'Birmingham City University BSc (Hons)': {
+                    'Course Title': [{
+                        'BEng (Hons) Civil Engineering # 252790 (Pathway to CE)': { 'Course No': 'BCUCE013' },
+                        'BSc (Hons) Building Surveying  # 252323 (Fully accredited by RICS, CIOB, CABE, HKICM, HKIPM & ICWCI)': { 'Course No': 'BCUBS013' }
+                    }]
+                },
+                'Birmingham City University MSc': {
+                    'Course Title': [{
+                        'MSc Construction Project Management # 252457 (Fully accredited by RICS, CIOB, CABE, HKICM, HKIPM & ICWCI)': { 'Course No': 'BCUMCPM013' },
+                        'MSc Building Surveying # 252640(Fully accredited by RICS, CIOB, CABE, HKICM, HKIPM & ICWCI)': { 'Course No': 'BCUMBS013' }
+                    }]
+                },
+            }],
+
+            studentList:[],
+        }
+
+        var vue = new Vue({
+            el: '#app',
+            data: vueData,
+            methods: {
+                getAllStudents: function () {
+                    return $.ajax({
+                        type: 'post',
+                        url: $('#url-get-all-students-info').val(),
+                        dataType: 'JSON',
+                        success: function (res) {
+                            vueData.studentList = res;
+                        }
+                    })
+                }
+            },
+
+            mounted: function() {
+                this.getAllStudents()
+            },
+
+            computed: {
+
+            }
+        })
+    </script>
+}
