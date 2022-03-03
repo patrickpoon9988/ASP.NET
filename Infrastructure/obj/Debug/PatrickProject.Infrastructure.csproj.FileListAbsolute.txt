@@ -10,3 +10,11 @@ C:\Users\patrick.poon\source\repos\WebApplication1\ClassLibrary1\obj\Debug\Patri
 C:\Users\patrick.poon\source\repos\WebApplication1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
 C:\Users\patrick.poon\source\repos\WebApplication1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
 C:\Users\patrick.poon\source\repos\WebApplication1\ClassLibrary1\obj\Debug\PatrickProject.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Poon\source\repos\ASP.NET\Infrastructure\bin\Debug\ClassLibrary1.dll.config
+C:\Users\Poon\source\repos\ASP.NET\Infrastructure\bin\Debug\ClassLibrary1.dll
+C:\Users\Poon\source\repos\ASP.NET\Infrastructure\bin\Debug\ClassLibrary1.pdb
+C:\Users\Poon\source\repos\ASP.NET\Infrastructure\obj\Debug\PatrickProject.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Poon\source\repos\ASP.NET\Infrastructure\obj\Debug\PatrickProject.Infrastructure.csproj.CopyComplete
+C:\Users\Poon\source\repos\ASP.NET\Infrastructure\obj\Debug\ClassLibrary1.dll
+C:\Users\Poon\source\repos\ASP.NET\Infrastructure\obj\Debug\ClassLibrary1.pdb
+C:\Users\Poon\source\repos\ASP.NET\Infrastructure\obj\Debug\PatrickProject.Infrastructure.csproj.AssemblyReference.cache
