@@ -59,12 +59,6 @@ namespace WebApplication1.Controllers
             return RedirectToActionPermanent(taskResult.Result);
         }
 
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult GetAllPatientsInfoByPatientIDJSON()
-        {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetAllPatientsInfoByPatientIDJSON);
-        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public HomeController Actions { get { return MVC.Home; } }
@@ -85,10 +79,8 @@ namespace WebApplication1.Controllers
             public readonly string About = "About";
             public readonly string Programe = "Programe";
             public readonly string Tution = "Tution";
-            public readonly string GetAllStudentsInfo = "GetAllStudentsInfo";
             public readonly string Comment = "Comment";
             public readonly string TimeTable = "TimeTable";
-            public readonly string GetAllPatientsInfoByPatientIDJSON = "GetAllPatientsInfoByPatientIDJSON";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -98,29 +90,11 @@ namespace WebApplication1.Controllers
             public const string About = "About";
             public const string Programe = "Programe";
             public const string Tution = "Tution";
-            public const string GetAllStudentsInfo = "GetAllStudentsInfo";
             public const string Comment = "Comment";
             public const string TimeTable = "TimeTable";
-            public const string GetAllPatientsInfoByPatientIDJSON = "GetAllPatientsInfoByPatientIDJSON";
         }
 
 
-        static readonly ActionParamsClass_TimeTable s_params_TimeTable = new ActionParamsClass_TimeTable();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_TimeTable TimeTableParams { get { return s_params_TimeTable; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_TimeTable
-        {
-            public readonly string patient = "patient";
-        }
-        static readonly ActionParamsClass_GetAllPatientsInfoByPatientIDJSON s_params_GetAllPatientsInfoByPatientIDJSON = new ActionParamsClass_GetAllPatientsInfoByPatientIDJSON();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_GetAllPatientsInfoByPatientIDJSON GetAllPatientsInfoByPatientIDJSONParams { get { return s_params_GetAllPatientsInfoByPatientIDJSON; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_GetAllPatientsInfoByPatientIDJSON
-        {
-            public readonly string patient = "patient";
-        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -133,6 +107,7 @@ namespace WebApplication1.Controllers
             {
                 public readonly string About = "About";
                 public readonly string Comment = "Comment";
+                public readonly string Graduation = "Graduation";
                 public readonly string Index = "Index";
                 public readonly string Programe = "Programe";
                 public readonly string TimeTable = "TimeTable";
@@ -140,6 +115,7 @@ namespace WebApplication1.Controllers
             }
             public readonly string About = "~/Views/Home/About.cshtml";
             public readonly string Comment = "~/Views/Home/Comment.cshtml";
+            public readonly string Graduation = "~/Views/Home/Graduation.cshtml";
             public readonly string Index = "~/Views/Home/Index.cshtml";
             public readonly string Programe = "~/Views/Home/Programe.cshtml";
             public readonly string TimeTable = "~/Views/Home/TimeTable.cshtml";
@@ -197,17 +173,6 @@ namespace WebApplication1.Controllers
         }
 
         [NonAction]
-        partial void GetAllStudentsInfoOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult GetAllStudentsInfo()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetAllStudentsInfo);
-            GetAllStudentsInfoOverride(callInfo);
-            return callInfo;
-        }
-
-        [NonAction]
         partial void CommentOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
@@ -226,30 +191,6 @@ namespace WebApplication1.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.TimeTable);
             TimeTableOverride(callInfo);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void TimeTableOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, WebApplication1.Models.PatientInfoModel patient);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult TimeTable(WebApplication1.Models.PatientInfoModel patient)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.TimeTable);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "patient", patient);
-            TimeTableOverride(callInfo, patient);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void GetAllPatientsInfoByPatientIDJSONOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, WebApplication1.Models.PatientInfoModel patient);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult GetAllPatientsInfoByPatientIDJSON(WebApplication1.Models.PatientInfoModel patient)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetAllPatientsInfoByPatientIDJSON);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "patient", patient);
-            GetAllPatientsInfoByPatientIDJSONOverride(callInfo, patient);
             return callInfo;
         }
 

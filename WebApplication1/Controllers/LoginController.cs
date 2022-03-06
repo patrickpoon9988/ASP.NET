@@ -1,12 +1,10 @@
-﻿using ClassLibrary1;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.Owin;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
+using ClassLibrary1;
 
 namespace WebApplication1.Controllers
 {

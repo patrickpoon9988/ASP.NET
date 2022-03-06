@@ -62,7 +62,6 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>Master.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Master.tt</DependentUpon>
     </Compile>
@@ -76,34 +75,34 @@
       <DependentUpon>Master.tt</DependentUpon>
     </Compile>
     <Compile Include="Master.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Master.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Master.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Master.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Master.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Master.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="PatrickIdentity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>PatrickIdentity.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="PatrickIdentity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>PatrickIdentity.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="PatrickIdentity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>PatrickIdentity.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tblAspNetUser.cs">
@@ -127,12 +126,24 @@
     <Compile Include="tblUserAccount.cs">
       <DependentUpon>Master.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Master.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Master.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="Teacher.cs">
+      <DependentUpon>WebDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebDataBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebDataBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebDataBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebDataBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebDataBaseModel.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -140,34 +151,55 @@
       <DependentUpon>Master.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="Master.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Master.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <EntityDeploy Include="PatrickIdentity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PatrickIdentity.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="WebDataBaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WebDataBaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="PatrickIdentity.edmx.diagram">
       <DependentUpon>PatrickIdentity.edmx</DependentUpon>
+    </None>
+    <None Include="WebDataBaseModel.edmx.diagram">
+      <DependentUpon>WebDataBaseModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Context.tt">
+      <DependentUpon>Master.edmx</DependentUpon>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Master.Context.cs</LastGenOutput>
-      <DependentUpon>Master.edmx</DependentUpon>
     </Content>
     <Content Include="Master.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Master.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Master.cs</LastGenOutput>
     </Content>
     <Content Include="PatrickIdentity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PatrickIdentity.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PatrickIdentity.Context.cs</LastGenOutput>
     </Content>
     <Content Include="PatrickIdentity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PatrickIdentity.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PatrickIdentity.cs</LastGenOutput>
+    </Content>
+    <Content Include="WebDataBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WebDataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>WebDataBaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="WebDataBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WebDataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>WebDataBaseModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

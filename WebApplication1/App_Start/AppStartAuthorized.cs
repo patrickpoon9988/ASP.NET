@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -38,7 +37,7 @@ namespace WebApplication1.App_Start
                         string RoleName = context.Roles.First(r => r.Id == name).Name;
                         foreach (var allowedRole in allowedroles)
                         {
-                            if (String.Compare(allowedRole, RoleName)==0) return true;
+                            if (String.Compare(allowedRole, RoleName) == 0) return true;
                         }
                     }
                 }

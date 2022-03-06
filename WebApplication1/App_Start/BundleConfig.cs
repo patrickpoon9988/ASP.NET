@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace WebApplication1
 {
@@ -13,8 +12,8 @@ namespace WebApplication1
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-3.4.1.js",
                         "~/Scripts/jquery.validate*"
-                        ,"~/Scripts/vue.js"
-                        ,"~/Scripts/vue.min.js"));
+                        , "~/Scripts/vue.js"
+                        , "~/Scripts/vue.min.js"));
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

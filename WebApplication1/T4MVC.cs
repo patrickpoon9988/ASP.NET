@@ -112,7 +112,20 @@ namespace Links
         public static readonly string index_scss = Url("index.scss");
         public static readonly string index_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/index.min.css") ? Url("index.min.css") : Url("index.css");
         public static readonly string index_min_css = Url("index.min.css");
+        public static readonly string obvious_buttons_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/obvious-buttons.min.css") ? Url("obvious-buttons.min.css") : Url("obvious-buttons.css");
+        public static readonly string obvious_buttons_less = Url("obvious-buttons.less");
         public static readonly string Site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/Site.min.css") ? Url("Site.min.css") : Url("Site.css");
+        public static readonly string Timetable_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/Timetable.min.css") ? Url("Timetable.min.css") : Url("Timetable.css");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class TimetableSelect {
+            public const string UrlPath = "~/Content/TimetableSelect";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(UrlPath); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
+            public static readonly string timetable_scss = Url("timetable.scss");
+            public static readonly string timetable_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/timetable.min.css") ? Url("timetable.min.css") : Url("timetable.css");
+            public static readonly string timetable_min_css = Url("timetable.min.css");
+        }
+    
     }
 
     
@@ -141,6 +154,14 @@ namespace Links
         }
         public static partial class Content 
         {
+            public static partial class TimetableSelect 
+            {
+                public static class Assets
+                {
+                    public static readonly string timetable_css_ = T4MVCHelpers.ProcessAssetPath("~/Content/TimetableSelect/timetable.css");
+                    public static readonly string timetable_min_css_ = T4MVCHelpers.ProcessAssetPath("~/Content/TimetableSelect/timetable.min.css");
+                }
+            }
             public static class Assets
             {
                 public static readonly string bootstrap_theme_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-theme.css");
@@ -149,7 +170,9 @@ namespace Links
                 public static readonly string bootstrap_min_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap.min.css");
                 public static readonly string index_css_ = T4MVCHelpers.ProcessAssetPath("~/Content/index.css");
                 public static readonly string index_min_css_ = T4MVCHelpers.ProcessAssetPath("~/Content/index.min.css");
+                public static readonly string obvious_buttons_css = T4MVCHelpers.ProcessAssetPath("~/Content/obvious-buttons.css");
                 public static readonly string Site_css = T4MVCHelpers.ProcessAssetPath("~/Content/Site.css");
+                public static readonly string Timetable_css = T4MVCHelpers.ProcessAssetPath("~/Content/Timetable.css");
             }
         }
     }

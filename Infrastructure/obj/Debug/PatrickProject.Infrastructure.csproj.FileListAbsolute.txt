@@ -30,3 +30,14 @@ C:\Users\Poon\source\repos\asdasdasd\Infrastructure\obj\Debug\PatrickProject.Inf
 C:\Users\Poon\source\repos\asdasdasd\Infrastructure\obj\Debug\PatrickProject.Infrastructure.csproj.CopyComplete
 C:\Users\Poon\source\repos\asdasdasd\Infrastructure\obj\Debug\ClassLibrary1.dll
 C:\Users\Poon\source\repos\asdasdasd\Infrastructure\obj\Debug\ClassLibrary1.pdb
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\bin\Debug\ClassLibrary1.dll.config
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\bin\Debug\ClassLibrary1.dll
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\bin\Debug\ClassLibrary1.pdb
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\bin\Debug\EntityFramework.dll
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\bin\Debug\EntityFramework.xml
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\obj\Debug\PatrickProject.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\obj\Debug\PatrickProject.Infrastructure.csproj.CopyComplete
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\obj\Debug\ClassLibrary1.dll
+C:\Users\Poon\source\repos\NEW_ASP.NET\Infrastructure\obj\Debug\ClassLibrary1.pdb
